@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 
 
     var httpRegex = new RegExp('http[s]?', 'ig');
-    var imageRegex = new RegExp('background-image[\\s*]:[\\s*][\\s]?url\\(["\']?([\\w\\d\\s!:./\\-\\_]*\\.[\\w?#]+)["\']?\\?*\w*.*\w*\\)[^;]*\;', 'ig');
+    var imageRegex = /url\s*\(["']?(\/?(?:[^\/]+\/)*?[^\/]+\.(?:png|gif|jpe?g|svg))["']?\)/gi;
     var filepathRegex = new RegExp('["\']?([\\w\\d\\s!:./\\-\\_]*\\.[\\w?#]+)["\']?', 'ig');
 
     var collectImages = function(files, dest) {
