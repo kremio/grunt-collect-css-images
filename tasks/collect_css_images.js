@@ -6,7 +6,6 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
 
 module.exports = function(grunt) {
 
@@ -38,7 +37,7 @@ module.exports = function(grunt) {
 
                 var references = data.match(imageRegex);
 
-                console.log('references : ', references)
+                console.log('references : ', references);
 
                 // If references are found
                 if (references) {
@@ -48,13 +47,6 @@ module.exports = function(grunt) {
                             grunt.verbose.warn(file + ' has been skipped as it\'s an external resource!');
                             return false;
                         }
-    
-                        // Exit if not a PNG
-                        //if (!/\.png.*/.test(file)) {
-                        //    grunt.verbose.warn(file + ' has been skipped as it\'s not a PNG!');
-                        //    return false;
-                        //}
-                        
     
                         var filepath;
                         var imagePath = file.match(filepathRegex)[0].replace(/['"]/g, '');
@@ -79,7 +71,7 @@ module.exports = function(grunt) {
                             images[filepath] = {file : file, imagePath : imagePath};
                             found = true;
                             console.log('dest : ', dest);
-                            var destPath = path.resolve(dest + "\\" + srcFile.substring(0, srcFile.lastIndexOf("/")) , imagePath);
+                            var destPath = path.resolve(dest + path.sep + srcFile.substring(0, srcFile.lastIndexOf("/")) , imagePath);
                             console.log('destPath : ', destPath);
                             grunt.file.copy(filepath, destPath);
                         } else {
